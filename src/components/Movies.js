@@ -1,4 +1,5 @@
 import React from 'react';
+import Movie from "./Movie";
 
 class Movies extends React.Component {
   state = {
@@ -22,6 +23,19 @@ class Movies extends React.Component {
                   value={this.state.query}
                   onChange={(event) => this.bindQuery(event.target.value)} />
             </div>
+            <div>{
+              this.state.query ?
+                  (
+                      <div className="movies-search--result">
+                        <Movie />
+                        <Movie />
+                        <Movie />
+                        <Movie />
+                        <Movie />
+                        <Movie />
+                      </div>
+                  ) : ''
+            }</div>
           </div>
           <div className="movies-overlay"></div>
         </div>

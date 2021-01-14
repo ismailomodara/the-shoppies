@@ -168,8 +168,9 @@ p {
 
 
 /**
-** Nomination - Styling for a Nomination component
+** Movies - Styling for a Movies component
  */
+
 .movies {
   height: 100%;
   width: 70%;
@@ -223,4 +224,103 @@ p {
   position: relative;
   top: 40px;
   transition: all 0.3s ease-out;
+  margin-bottom: 40px;
 }
+
+.movies .movies-search--result {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  -webkit-animation: fadeIn 0.4s ease-out forwards;
+  animation: fadeIn 0.4s ease-out forwards;
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.35s;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/**
+** Movie - Styling for a Movie component
+ */
+
+.movie {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 15px
+}
+
+.movie-cover {
+  height: 250px;
+  width: 200px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0,0,0,0.23);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.movie-cover img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  position: relative;
+}
+
+.movie-cover img::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  background: var(--color-background);
+}
+
+.movie-cover .movie-action {
+  z-index: 1;
+  position: absolute;
+  right: -16px;
+  bottom: -16px;
+  height: 50px;
+  width: 50px;
+  background: var(--color-text-faded);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.movie-title h4 {
+  margin-bottom: 5px
+}
+
+.movie-title p {
+  color: var(--color-text-faded);
+  font-weight: 500;
+}
+
