@@ -1,14 +1,16 @@
 import React from 'react';
-import nominations from '../assets/nominations.svg'
+import nominations from '../assets/nominations-2.svg'
 import Nomination from "./Nomination";
 
 const Nominations = props => {
   return (
       <div className="nominations">
-        <div className="nominations-illustration">
-          <img src={nominations} alt="" />
+        <div>
+          <div className="nominations-illustration">
+            <img src={nominations} alt="" />
+          </div>
+          <h2>Your Nominations</h2>
         </div>
-        <h2>Your Nominations</h2>
         <div>
           {
             props.nominations.length ?

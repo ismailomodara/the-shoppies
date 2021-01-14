@@ -19,6 +19,7 @@ body {
   padding: 0;
   margin: 0;
   line-height: 1.4;
+  font-family: 'Comfortaa', cursive;
   background: var(--color-background);
   color: var(--color-text-white)
 }
@@ -51,6 +52,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   text-align: center;
 }
 
@@ -69,7 +71,6 @@ p {
 
 .nominations .nominations-list {
   width: 100%;
-  margin-top: 40px;
 }
 
 .nominations .nominations-list--empty {
@@ -77,12 +78,13 @@ p {
   border-radius: 8px;
   height: 400px;
   width: 80%;
-  margin: 40px auto 0;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.1rem;
 }
+
 
 /**
 ** Nomination - Styling for a Nomination component
@@ -162,4 +164,63 @@ p {
   color: var(--color-text-white);
   cursor: pointer;
   border-radius: 100%;
+}
+
+
+/**
+** Nomination - Styling for a Nomination component
+ */
+.movies {
+  height: 100%;
+  width: 70%;
+  position: relative;
+}
+
+.movies .movies-overlay {
+  background: rgba(0, 26, 21, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.movies .movies-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.movies .movies-search--bar {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 6px rgba(0,0,0,0.23);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in;
+}
+
+.movies .movies-search--bar input {
+  width: 100%;
+  height: 60px;
+  padding-left: 15px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-family: 'Comfortaa', cursive;
+}
+
+.movies .movies-search--bar.has-value {
+  width: 100%;
+  position: relative;
+  top: 40px;
+  transition: all 0.3s ease-out;
 }
