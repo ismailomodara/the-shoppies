@@ -16,6 +16,7 @@ body {
 }
 
 body {
+  overflow: hidden;
   padding: 0;
   margin: 0;
   line-height: 1.4;
@@ -70,6 +71,9 @@ p {
 }
 
 .nominations .nominations-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
   width: 100%;
 }
 
@@ -143,6 +147,8 @@ p {
 
 .nomination .nomination-title h3 {
   margin-bottom: 5px;
+  width: 80%;
+  word-break: break-word;
 }
 
 .nomination .nomination-title p {
@@ -231,6 +237,9 @@ p {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
   opacity: 0;
   -webkit-animation: fadeIn 0.4s ease-out forwards;
   animation: fadeIn 0.4s ease-out forwards;
@@ -238,6 +247,11 @@ p {
   animation-delay: 0.35s;
 }
 
+.movies .movies-search--result > div:last-child {
+  height: 100%;
+  overflow-y: scroll;
+  padding-bottom: 100px;
+}
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;

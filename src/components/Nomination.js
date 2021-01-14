@@ -1,17 +1,26 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 class Nomination extends React.Component {
+  static propTypes = {
+    movie: PropTypes.object.isRequired
+  }
 
   render() {
+    const movie = this.props.movie;
+    const movieTitle = movie.Title;
+    const movieYear = movie.Year;
+    const movieThumbnail = movie.Poster
+
     return (
         <div className="nomination">
-          <span>1</span>
+          <span>{this.props.index}</span>
           <div className="nomination-image">
-            <img src="" alt="" />
+            <img src={movieThumbnail} alt="" />
           </div>
           <div className="nomination-title">
-            <h3>Black Panther II</h3>
-            <p>2021</p>
+            <h3>{movieTitle}</h3>
+            <p>{movieYear}</p>
           </div>
           <div className="nomination-action">
             -

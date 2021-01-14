@@ -15,19 +15,20 @@ const Nominations = props => {
           {
             props.nominations.length ?
                 (
-                    <div className="nominations-list">
-                      <Nomination />
-                      <Nomination />
-                      <Nomination />
-                      <Nomination />
-                      <Nomination />
-                    </div>
+                  <ul className="nominations-list">
+                    {
+                      props.nominations.map((movie, index) =>
+                        <li key={index}>
+                          <Nomination movie={movie} index={index+1}/>
+                        </li>)
+                    }
+                  </ul>
                 )
                 :
                 (
-                    <div className="nominations-list--empty">
-                      <p>No nominations added</p>
-                    </div>
+                  <div className="nominations-list--empty">
+                    <p>No nominations added</p>
+                  </div>
                 )
           }
         </div>
