@@ -1,14 +1,17 @@
 import React from 'react'
 import './App.css'
+import Nominations from "./components/Nominations";
 
 class App extends React.Component {
   state = {
-    nominations: []
+    nominations: [1]
   }
 
   render() {
     return (
-        <div className="app"></div>
+        <div className="app">
+          <Nominations nominations={this.state.nominations} />
+        </div>
     )
   }
 }
