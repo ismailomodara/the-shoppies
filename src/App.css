@@ -53,7 +53,6 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
   text-align: center;
 }
 
@@ -61,12 +60,16 @@ p {
   width: 100%;
 }
 
+.nominations > div:first-child {
+  margin: 20px 0 50px
+}
+
 .nominations .nominations-illustration {
-  margin: 20px 0;
+  margin-bottom: 12px;
 }
 
 .nominations .nominations-illustration img {
-  height: 120px;
+  height: 100px;
   width: auto;
 }
 
@@ -100,19 +103,6 @@ p {
   padding: 20px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
-}
-
-.nomination span {
-  height: 32px;
-  width: 32px;
-  background: var(--color-background);
-  border-radius: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--color-text-white);
-  font-weight: 600;
-  margin-right: 30px;
 }
 
 .nomination .nomination-image {
@@ -149,6 +139,7 @@ p {
   margin-bottom: 5px;
   width: 80%;
   word-break: break-word;
+  font-size: 1rem;
 }
 
 .nomination .nomination-title p {
@@ -319,9 +310,9 @@ p {
   position: absolute;
   right: -16px;
   bottom: -16px;
-  height: 50px;
-  width: 50px;
-  background: var(--color-text-faded);
+  height: 40px;
+  width: 40px;
+  background: var(--color-primary);
   border-radius: 100%;
   display: flex;
   justify-content: center;
@@ -329,7 +320,14 @@ p {
   cursor: pointer;
 }
 
+.movie-cover .movie-action.is-disabled {
+  background: var(--color-text-faded) !important;
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+
 .movie-title h4 {
+  width: 80%;
   margin-bottom: 5px
 }
 

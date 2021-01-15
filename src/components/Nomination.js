@@ -14,7 +14,6 @@ class Nomination extends React.Component {
 
     return (
         <div className="nomination">
-          <span>{this.props.index}</span>
           <div className="nomination-image">
             <img src={movieThumbnail} alt="" />
           </div>
@@ -22,7 +21,7 @@ class Nomination extends React.Component {
             <h3>{movieTitle}</h3>
             <p>{movieYear}</p>
           </div>
-          <div className="nomination-action">
+          <div className="nomination-action" onClick={() => this.props.remove(movieTitle)}>
             -
           </div>
         </div>

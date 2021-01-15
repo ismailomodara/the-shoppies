@@ -51,7 +51,11 @@ class Movies extends React.Component {
                       {
                         this.state.movies.map((movie, index) =>
                           <li key={index}>
-                            <Movie movie={movie} nominate={this.props.nominate} />
+                            <Movie
+                                movie={movie}
+                                nominations={this.props.nominations}
+                                nominate={this.props.nominate}
+                                canNominate={this.props.canNominate} />
                           </li>)
                       }
                     </ul>

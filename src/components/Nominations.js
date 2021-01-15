@@ -19,7 +19,7 @@ const Nominations = props => {
                     {
                       props.nominations.map((movie, index) =>
                         <li key={index}>
-                          <Nomination movie={movie} index={index+1}/>
+                          <Nomination movie={movie} remove={props.removeNomination} />
                         </li>)
                     }
                   </ul>
