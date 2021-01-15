@@ -1,11 +1,12 @@
 import React from 'react';
 import Movie from "./Movie";
+import Loader from "./Loader";
 import * as API from '../api/API';
 
 class Movies extends React.Component {
   state = {
     movies: [],
-    searchResult: false,
+    searching: false,
     query: ''
   }
 
@@ -18,17 +19,18 @@ class Movies extends React.Component {
    * This function searches for all books that match the query provided by the user.
    */
   search = (query) => {
+    this.setState(() => ({ searching: true }))
     if(query !== '' && query.length > 2) {
       API.search(query)
         .then((movies) => {
           if(movies.Response === "True") {
-            this.setState(() => ({ movies: movies.Search, searchResult: true }))
+            this.setState(() => ({ movies: movies.Search, searching: false }))
           } else {
-            this.setState(() => ({ movies: [], searchResult: false }))
+            this.setState(() => ({ movies: [], searching: false }))
           }
         })
     } else {
-      this.setState({ movies: []})
+      this.setState({ movies: [], searching: false})
     }
   }
 
@@ -45,23 +47,26 @@ class Movies extends React.Component {
             </div>
             <div>{
               this.state.query !== '' && (
-                this.state.searchResult ?
-                  (
-                    <ul className="movies-search--result">
-                      {
-                        this.state.movies.map((movie, index) =>
-                          <li key={index}>
-                            <Movie
-                                movie={movie}
-                                nominations={this.props.nominations}
-                                nominate={this.props.nominate}
-                                canNominate={this.props.canNominate} />
-                          </li>)
-                      }
-                    </ul>
-                  ) : (
-                    <div>No result</div>
-                  )
+                this.state.searching ? (
+                    <Loader />
+                ) :
+                  this.state.movies.length ?
+                    (
+                      <ul className="movies-search--result">
+                        {
+                          this.state.movies.map((movie, index) =>
+                              <li key={index}>
+                                <Movie
+                                    movie={movie}
+                                    nominations={this.props.nominations}
+                                    nominate={this.props.nominate}
+                                    canNominate={this.props.canNominate} />
+                              </li>)
+                        }
+                      </ul>
+                    ) : (
+                        <div>No result</div>
+                    )
               )
             }</div>
           </div>

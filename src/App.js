@@ -2,11 +2,15 @@ import React from 'react'
 import './App.css'
 import Nominations from "./components/Nominations";
 import Movies from "./components/Movies";
+import Notification from "./components/Notification";
 
 class App extends React.Component {
   state = {
     nominations: [],
-    canNominate: true
+    nominationLimit: 5, // This is to make the nomination limit flexible, in case the limit is increased.
+    canNominate: true,
+    notification: false,
+    notificationMessage: ""
   }
 
   /**
@@ -16,52 +20,72 @@ class App extends React.Component {
   componentDidMount() {
     let nominations = JSON.parse(localStorage.getItem('nominations')) || []
     this.setState(() => ({
-      nominations: nominations
+      nominations: nominations,
+      canNominate: nominations.length < this.state.nominationLimit
     }))
-    if(this.state.nominations.length === 5) {
+  }
+
+  nominationExist = (movie) => {
+    const nominated = this.state.nominations.filter(nomination => nomination.Title === movie.Title)
+    return nominated.length;
+  }
+
+  addNomination = async (movie) => {
+    if(!this.nominationExist(movie)) {
+      await this.setState((currentState) => ({
+        nominations: currentState.nominations.concat([movie]),
+        canNominate: (currentState.nominations.length + 1) < this.state.nominationLimit,
+        notification: true,
+        notificationMessage: "Nomination added successfully!"
+      }))
+      this.updateLocalStorage()
+    } else {
       this.setState(() => ({
-        canNominate: false
+        notification: true,
+        notificationMessage: "Nomination already added!"
       }))
     }
   }
 
-  /**
-   * This function adds a movie to a user's list of nominations.
-   */
-  addNomination = (movie) => {
-    this.setState((currentState) => ({
-      nominations: currentState.nominations.concat([movie]),
-      canNominate: (currentState.nominations.length + 1) < 5
-    }))
-    this.updateLocalStorage()
-  }
-
-  /**
-   * This function removes a movie from user's nominations list.
-   */
-  removeNomination = (movieTitle) => {
-    this.setState((currentState) => ({
+  removeNomination = async (movieTitle) => {
+    await this.setState((currentState) => ({
       nominations: currentState.nominations.filter(movie => movie.Title.toLowerCase() !== movieTitle.toLowerCase()),
-      canNominate: true
+      canNominate: true,
+      notification: true,
+      notificationMessage: "Nomination removed successfully!"
     }))
     this.updateLocalStorage()
   }
 
-  /**
-   * This function helps to save user's nominations to local storage
-   */
   updateLocalStorage = () => {
     localStorage.setItem("nominations", JSON.stringify(this.state.nominations))
+  }
+
+  removeNotification = () => {
+    this.setState(() => ({
+      notification: false,
+      notificationMessage: ""
+    }))
   }
 
   render() {
     return (
         <div className="app">
-          <Nominations nominations={this.state.nominations} removeNomination={this.removeNomination}/>
+          <Nominations
+              nominations={this.state.nominations}
+              removeNomination={this.removeNomination}/>
           <Movies
               nominate={this.addNomination}
               canNominate={this.state.canNominate}
               nominations={this.state.nominations} />
+          {
+            this.state.notification && (
+              <Notification
+                message={this.state.notificationMessage}
+                duration={2000}
+                remove={this.removeNotification} />
+            )
+          }
         </div>
     )
   }
