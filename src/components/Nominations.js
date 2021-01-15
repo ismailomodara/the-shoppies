@@ -1,5 +1,5 @@
 import React from 'react';
-import nominations from '../assets/nominations-2.svg'
+import nominations from '../assets/nominations.svg'
 import Nomination from "./Nomination";
 
 const Nominations = props => {
