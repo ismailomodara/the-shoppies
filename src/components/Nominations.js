@@ -5,33 +5,38 @@ import Nomination from "./Nomination";
 const Nominations = props => {
   return (
       <div className={`nominations ${props.openNomination ? 'open' : ''}`}>
-        <div>
+        <div className="nominations-heading">
           <div className="nominations-illustration">
             <img src={nominations} alt="" />
           </div>
           <h2>Your Nominations</h2>
         </div>
-        <div>
-          {
-            props.nominations.length ?
-                (
-                  <ul className="nominations-list">
-                    {
-                      props.nominations.map((movie, index) =>
-                        <li key={index}>
-                          <Nomination movie={movie} remove={props.removeNomination} />
-                        </li>)
-                    }
-                  </ul>
-                )
-                :
-                (
-                  <div className="nominations-list--empty">
-                    <p>No nominations added</p>
-                  </div>
-                )
-          }
-        </div>
+        {
+          props.nominations.length === 5 && (
+              <div className="nominations-banner">
+                <p>You have 5 nominations!</p>
+              </div>
+          )
+        }
+        {
+          props.nominations.length ?
+            (
+              <ul className="nominations-list">
+                {
+                  props.nominations.map((movie, index) =>
+                      <li key={index}>
+                        <Nomination movie={movie} remove={props.removeNomination} />
+                      </li>)
+                }
+              </ul>
+            )
+            :
+            (
+              <div className="nominations-list--empty">
+                <p>No nominations added</p>
+              </div>
+            )
+        }
         <div className="nominations-close" onClick={() => props.closeNomination()}>
           <svg
               xmlns="http://www.w3.org/2000/svg"

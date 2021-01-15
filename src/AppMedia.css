@@ -37,6 +37,10 @@
         transition: all 0.3s ease-out;
     }
 
+    .nominations .nominations-close {
+        display: flex;
+    }
+
     .nominations .nominations-illustration img {
         height: 80px;
     }

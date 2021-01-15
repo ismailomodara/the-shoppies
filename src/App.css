@@ -61,8 +61,8 @@ p {
   width: 100%;
 }
 
-.nominations > div:first-child {
-  margin: 20px 0 50px
+.nominations .nominations-heading {
+  margin: 20px 0;
 }
 
 .nominations-close {
@@ -82,11 +82,19 @@ p {
   width: auto;
 }
 
+.nominations .nominations-banner {
+  margin: 15px 0 40px;
+  background: var(--color-primary);
+  padding: 10px;
+  border-radius: 10px;
+}
+
 .nominations .nominations-list {
   margin: 0;
   padding: 0;
   list-style-type: none;
   width: 100%;
+  overflow-y: scroll;
 }
 
 .nominations .nominations-list--empty {
