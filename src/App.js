@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+import './AppMedia.css'
 import Nominations from "./components/Nominations";
 import Movies from "./components/Movies";
 import Notification from "./components/Notification";
@@ -9,6 +10,7 @@ class App extends React.Component {
     nominations: [],
     nominationLimit: 5, // This is to make the nomination limit flexible, in case the limit is increased.
     canNominate: true,
+    openNomination: false,
     notification: false,
     notificationMessage: ""
   }
@@ -68,16 +70,31 @@ class App extends React.Component {
     }))
   }
 
+  openNomination = () => {
+    this.setState(() => ({
+      openNomination: true
+    }))
+  }
+
+  closeNomination = () => {
+    this.setState(() => ({
+      openNomination: false
+    }))
+  }
+
   render() {
     return (
         <div className="app">
           <Nominations
               nominations={this.state.nominations}
-              removeNomination={this.removeNomination}/>
+              removeNomination={this.removeNomination}
+              openNomination={this.state.openNomination}
+              closeNomination={this.closeNomination} />
           <Movies
               nominate={this.addNomination}
               canNominate={this.state.canNominate}
-              nominations={this.state.nominations} />
+              nominations={this.state.nominations}
+              openNominations={this.openNomination} />
           {
             this.state.notification && (
               <Notification

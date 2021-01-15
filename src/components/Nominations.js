@@ -4,7 +4,7 @@ import Nomination from "./Nomination";
 
 const Nominations = props => {
   return (
-      <div className="nominations">
+      <div className={`nominations ${props.openNomination ? 'open' : ''}`}>
         <div>
           <div className="nominations-illustration">
             <img src={nominations} alt="" />
@@ -32,7 +32,14 @@ const Nominations = props => {
                 )
           }
         </div>
-
+        <div className="nominations-close" onClick={() => props.closeNomination()}>
+          <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff"
+              strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </div>
       </div>
   )
 }

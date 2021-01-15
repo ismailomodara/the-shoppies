@@ -65,6 +65,14 @@ p {
   margin: 20px 0 50px
 }
 
+.nominations-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: none;
+  justify-content: flex-end
+}
+
 .nominations .nominations-illustration {
   margin-bottom: 12px;
 }
@@ -195,15 +203,46 @@ p {
   overflow-y: scroll;
 }
 
-.movies .movies-search--bar {
+.movies .movies-nominations {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  padding: 15px 20px;
+  background: var(--color-text-white);
+  border-radius: 4px;
+  color: var(--color-text-black);
+  font-weight: 600;
+  z-index: 9;
+}
+
+.movies .movies-content--heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 70%;
   margin: 0 auto;
-  display: flex;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 6px rgba(0,0,0,0.23);
   position: relative;
   top: 50%;
   transform: translateY(-50%);
   transition: all 0.3s ease-in;
+}
+
+.movies .movies-content--logo {
+  display: none;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.movies .movies-content--logo p {
+  font-weight: 600;
+  margin-left: 10px;
+  font-size: 1.5rem;
+}
+
+.movies .movies-search--bar {
+  width: 100%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 6px rgba(0,0,0,0.23);
 }
 
 .movies .movies-search--bar input {
@@ -218,12 +257,16 @@ p {
   font-family: 'Comfortaa', cursive;
 }
 
-.movies .movies-search--bar.has-value {
+.movies .movies-content--heading.has-value {
   width: 100%;
   position: relative;
   top: 40px;
   transition: all 0.3s ease-out;
   margin-bottom: 40px;
+}
+
+.movies .movies-content--heading.has-value .movies-content--logo {
+  display: none;
 }
 
 .movies .movies-search--result {

@@ -1,0 +1,79 @@
+@media (max-width: 1024px) {
+    .nominations {
+      position: absolute;
+      left: -30%;
+      z-index: 10;
+    }
+
+    .nominations .nominations-close {
+        display: none;
+    }
+
+    .movies {
+        width: 100%;
+    }
+
+    .movies .movies-nominations {
+        display: flex;
+    }
+
+    .movies .movies-content--logo {
+        display: flex;
+    }
+}
+
+@media (max-width: 600px) {
+    .nominations {
+        width: 80%;
+        left: -80%;
+        padding: 20px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0,0,0,0.23);
+        transition: left 0.3s ease-out;
+    }
+
+    .nominations.open {
+        left: 0;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0,0,0,0.23);
+        transition: all 0.3s ease-out;
+    }
+
+    .nominations .nominations-illustration img {
+        height: 80px;
+    }
+
+    .nominations h2 {
+        font-size: 1rem;
+    }
+
+    .movies .movies-content {
+        padding: 15px;
+    }
+
+    .movies .movies-nominations {
+        right: unset;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 15px;
+    }
+
+    .movies .movies-content--heading {
+        width: 100%;
+    }
+
+    .movies .movies-content--logo img {
+       height: 40px;
+    }
+
+    .movies .movies-content--logo p {
+       font-size: 1.2rem;
+    }
+
+    .movies .movies-search--bar input {
+        font-size: 0.9rem;
+    }
+
+    .movie .movie-cover {
+        width: 100%;
+        height: 160px;
+    }
+}

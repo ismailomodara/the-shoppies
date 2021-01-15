@@ -1,6 +1,7 @@
 import React from 'react';
-import Movie from "./Movie";
 import Loader from "./Loader";
+import Movie from "./Movie";
+import Logo from "../assets/logo64.png"
 import * as API from '../api/API';
 
 class Movies extends React.Component {
@@ -38,12 +39,21 @@ class Movies extends React.Component {
     return (
         <div className="movies">
           <div className="movies-content">
-            <div className={`movies-search--bar ${this.state.query !== '' ? 'has-value' : ''}`}>
-              <input
-                  type="text"
-                  placeholder="Search for movies to nominate"
-                  value={this.state.query}
-                  onChange={(event) => this.bindQuery(event.target.value)} />
+            <div className="movies-nominations" onClick={() => this.props.openNominations()}>
+              <span>All {this.props.nominations.length} Nomination(s)</span>
+            </div>
+            <div className={`movies-content--heading ${this.state.query !== '' ? 'has-value' : ''}`}>
+              <div className="movies-content--logo">
+                <img src={Logo} alt="The Shoppies" />
+                <p>The Shoppies</p>
+              </div>
+              <div className="movies-search--bar">
+                <input
+                    type="text"
+                    placeholder="Search for movies to nominate"
+                    value={this.state.query}
+                    onChange={(event) => this.bindQuery(event.target.value)} />
+              </div>
             </div>
             <div>{
               this.state.query !== '' && (
