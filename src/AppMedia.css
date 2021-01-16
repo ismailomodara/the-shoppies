@@ -9,20 +9,6 @@
         display: none;
     }
 
-    .movies {
-        width: 100%;
-    }
-
-    .movies .movies-nominations {
-        display: flex;
-    }
-
-    .movies .movies-content--logo {
-        display: flex;
-    }
-}
-
-@media (max-width: 600px) {
     .nominations {
         width: 80%;
         left: -80%;
@@ -40,6 +26,25 @@
     .nominations .nominations-close {
         display: flex;
     }
+
+    .movies {
+        width: 100%;
+    }
+
+    .movies .movies-content .github-link {
+        display: none;
+    }
+
+    .movies .movies-nominations {
+        display: flex;
+    }
+
+    .movies .movies-content--logo {
+        display: flex;
+    }
+}
+
+@media (max-width: 600px) {
 
     .nominations .nominations-illustration img {
         height: 80px;

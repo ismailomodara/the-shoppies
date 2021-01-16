@@ -211,6 +211,33 @@ p {
   overflow-y: scroll;
 }
 
+.movies .github-link {
+  background: var(--color-text-white);
+  padding: 5px;
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  border-radius: 5px;
+  width: 100px;
+  color: var(--color-text-black);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.movies .github-link a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.movies .github-link {
+
+}
+
 .movies .movies-nominations {
   display: none;
   position: fixed;
