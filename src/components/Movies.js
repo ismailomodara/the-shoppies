@@ -40,8 +40,8 @@ class Movies extends React.Component {
         <div className="movies">
           <div className="movies-content">
             <div className="github-link">
-              <a href="https://github.com/omodara145/the-shoppies.git" target="_blank"></a>
-              <span>
+              <a href="https://github.com/omodara145/the-shoppies.git" target="_blank">
+                <span>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18" height="18"
@@ -56,6 +56,8 @@ class Movies extends React.Component {
                 </svg>
                 Github
               </span>
+              </a>
+
             </div>
             <div className="movies-nominations" onClick={() => this.props.openNominations()}>
               <span>All {this.props.nominations.length} Nomination(s)</span>

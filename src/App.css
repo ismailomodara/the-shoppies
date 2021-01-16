@@ -227,15 +227,10 @@ p {
 }
 
 .movies .github-link a {
-  position: absolute;
-  top: 0;
-  left: 0;
   height: 100%;
   width: 100%;
-}
-
-.movies .github-link {
-
+  text-decoration: none;
+  color: var(--color-text-black)
 }
 
 .movies .movies-nominations {
