@@ -1,8 +1,12 @@
 @media (max-width: 1024px) {
     .nominations {
-      position: absolute;
-      left: -30%;
+      position: fixed;
       z-index: 10;
+      width: 80%;
+      left: -80%;
+      padding: 20px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0,0,0,0.23);
+      transition: left 0.3s ease-out;
     }
 
     .nominations .nominations-close {
@@ -10,17 +14,17 @@
     }
 
     .nominations {
-        width: 80%;
-        left: -80%;
-        padding: 20px;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0,0,0,0.23);
-        transition: left 0.3s ease-out;
+
     }
 
     .nominations.open {
         left: 0;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0,0,0,0.23);
         transition: all 0.3s ease-out;
+    }
+
+    .nominations.open + .movies .movies-content {
+        overflow: hidden;
     }
 
     .nominations .nominations-close {
