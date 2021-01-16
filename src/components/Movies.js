@@ -40,7 +40,7 @@ class Movies extends React.Component {
         <div className="movies">
           <div className="movies-content">
             <div className="github-link">
-              <a href="https://github.com/omodara145/the-shoppies.git" target="_blank">
+              <a href="https://github.com/omodara145/the-shoppies.git" target="_blank" rel="noreferrer">
                 <span>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
