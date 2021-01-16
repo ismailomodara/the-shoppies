@@ -1,5 +1,5 @@
 const API_KEY = "e1d21db6"
-const BASE_URL = `http://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}`
+const BASE_URL = `https://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}`
 
 
 // Generate a unique token for storing your nominations.
